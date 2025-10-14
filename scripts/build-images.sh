@@ -4,7 +4,7 @@ set -e
 minikube start
 eval $(minikube docker-env)
 
-kubectl delete --all pods,deployments,services -n task8 || true
+kubectl delete --all pods,deployments,services -n pract8 || true
 
 docker build -t config-service:latest ./config-service
 docker build -t discovery-service:latest ./discovery-service

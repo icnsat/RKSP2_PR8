@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: icnsat/product-service:latest
-          imagePullPolicy: IfNotPresent
+          image: icnsat/product-service:v1
+#          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9002
           env:

@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: icnsat/api-gateway:latest
-          imagePullPolicy: IfNotPresent
+          image: icnsat/api-gateway:v1
+#          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:

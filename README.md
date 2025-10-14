@@ -9,7 +9,7 @@
 # Запуск
 ```zsh
 ./scripts/build-jar.sh
-./scripts/build-containers.sh
+./scripts/build-images.sh
 ./scripts/apply-manifests.sh # Запускать вручную по одному
 ./scripts/port-forward.sh
 ```
