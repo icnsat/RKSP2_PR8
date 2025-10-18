@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: icnsat/order-service:v1
+          image: icnsat/order-service:v3
 #          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9003

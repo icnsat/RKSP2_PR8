@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: icnsat/user-service:v1
+          image: icnsat/user-service:v3
 #          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9001

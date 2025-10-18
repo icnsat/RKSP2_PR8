@@ -1,6 +1,9 @@
 #!/bin/zsh
 set -e
 
+minikube start
+kubectl delete --all pods,deployments,services -n pract8
+
 kubectl apply -f k8s/namespace.yaml
 
 # Запускать по одному

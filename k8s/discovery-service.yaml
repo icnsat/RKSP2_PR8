@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: discovery-service
-          image: icnsat/discovery-service:v2
+          image: icnsat/discovery-service:v3
 #          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8761
