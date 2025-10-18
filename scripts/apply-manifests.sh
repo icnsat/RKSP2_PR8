@@ -4,8 +4,8 @@ set -e
 kubectl apply -f k8s/namespace.yaml
 
 # Запускать по одному
-kubectl apply -f k8s/config-service.yaml
 kubectl apply -f k8s/discovery-service.yaml
+kubectl apply -f k8s/config-service.yaml
 kubectl apply -f k8s/postgres-user.yaml
 kubectl apply -f k8s/user-service.yaml
 kubectl apply -f k8s/postgres-product.yaml

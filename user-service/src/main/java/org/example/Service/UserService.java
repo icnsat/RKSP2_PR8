@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -32,6 +33,7 @@ public class UserService implements UserDetailsService {
                 .email(dto.getEmail())
                 .password(passwordEncoder.encode(dto.getPassword()))
                 .role(Role.ROLE_CUSTOMER)
+                .createdAt(LocalDateTime.now())
                 .build();
 
         User savedUser = userRepository.save(user);
@@ -56,6 +58,19 @@ public class UserService implements UserDetailsService {
                 .accessToken(token)
                 .user(mapToDTO(user))
                 .build();
+    }
+
+    public boolean validateToken(String token) {
+        try {
+            if (token.startsWith("Bearer ")) {
+                String jwtToken = token.substring(7);
+                String username = JwtUtil.extractUsername(jwtToken);
+                return JwtUtil.validateToken(jwtToken, username);
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

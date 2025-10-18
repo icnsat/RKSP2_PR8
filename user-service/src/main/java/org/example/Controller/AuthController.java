@@ -5,10 +5,7 @@ import org.example.DTO.AuthResponse;
 import org.example.DTO.CreateUserDTO;
 import org.example.DTO.LoginRequest;
 import org.example.Service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -24,6 +21,11 @@ public class AuthController {
     @PostMapping("/login")
     public AuthResponse login(@RequestBody LoginRequest request) {
         return userService.login(request);
+    }
+
+    @PostMapping("/validate")
+    public boolean validateToken(@RequestHeader("Authorization") String token) {
+        return userService.validateToken(token);
     }
 }
 
