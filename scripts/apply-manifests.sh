@@ -2,13 +2,19 @@
 set -e
 
 minikube start
+#eval $(minikube docker-env)
+minikube docker-env | Invoke-Expression
+
 kubectl delete --all pods,deployments,services -n pract8
 
 kubectl apply -f k8s/namespace.yaml
 
 # Запускать по одному
-kubectl apply -f k8s/discovery-service.yaml
 kubectl apply -f k8s/config-service.yaml
+kubectl apply -f k8s/discovery-service.yaml
+
+kubectl rollout restart deployment/config-service -n pract8
+
 kubectl apply -f k8s/postgres-user.yaml
 kubectl apply -f k8s/user-service.yaml
 kubectl apply -f k8s/postgres-product.yaml

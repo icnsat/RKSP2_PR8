@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: config-service
-          image: icnsat/config-service:v3
+          image: icnsat/config-service:v6
 #          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888
